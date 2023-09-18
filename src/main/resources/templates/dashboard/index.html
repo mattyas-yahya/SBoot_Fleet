@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <title>Dashboard</title>
+    <meta charset="utf-8" />
+</head>
+<body >
+<section layout:fragment="header">
+    <h1>
+        Dashboard
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<h2 id="nx"></h2>
+<h2 id="nc"></h2>
+<div layout:fragment="content">
+
+
+    <div class="panel panel-default" style="background: white;">
+        <table id="table_vehicles" class="table table-striped table-bordered table-hover"  cellspacing="0"
+        width="100%" role="grid" aria-describedby="example_info"
+        style="width: 100%;">
+        <!-- Header Table -->
+        <thead>
+        <tr>
+        <th>id</th>
+        <th>Model</th>
+        <th>License Plat</th>
+        <th> Driver  </th>
+        <th>Assignment Date</th>
+        <th> Category </th>
+        <th>Order Date</th>
+        <th>Chassis Number</th>
+        <th>Fleet Manager</th>
+        <th>Location</th>
+        <th> First Contract Date</th>
+        <th>Purchase Value </th>
+        <th> Residual Value </th>
+        
+        </tr>
+        </thead>
+        
+        <!-- Footer Table -->
+        </table>
+        <table id="table_services" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id</th>
+<th>id_vehicles</th>
+<th>Description</th>
+<th>Vehicle </th>
+<th> Service Type  </th>
+<th>Service Date </th>
+<th> Cost  </th>
+<th>Vendor </th>
+<th>Driver</th>
+<th>Odometer Value</th>
+<th>Notes </th>
+</tr>
+</thead>
+
+<!-- Footer Table -->
+</table>
+<table id="table_contract" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id</th>
+<th>id_vehicles</th>
+<th>Reference</th>
+<th>Type </th>
+<th> Vendor  </th>
+<th>contract start date </th>
+<th> contract expired date  </th>
+<th>responsible </th>
+<th>vehicle</th>
+<th>driver</th>
+<th>activation cost</th>
+<th> recurring cost</th>
+</tr>
+</thead>
+
+<!-- Footer Table -->
+</table>
+        </div>
+</div>
+
+</body>
+</html>

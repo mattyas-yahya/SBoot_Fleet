@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8" />
+<title>Master Data services</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+<h2 style="color: white;">
+  <b class="glyphicon glyphicon-cog"></b>
+  services
+</h2>
+
+</section>
+<div layout:fragment="content">
+  <span th:replace="Modal_w/modal_vehicle"/>
+
+<div class="col-md-12">
+<div class="box-body">
+
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li ><a href="#tab_2" data-toggle="tab">General</a></li>
+</ul>
+<div class="tab-content">
+
+<div class="tab-pane active" id="tab_1">
+<div class='box-body pad'>
+<div style="
+background: white;
+">
+<table id="table_services" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id</th>
+<th>id_vehicles</th>
+<th>Description</th>
+<th>Vehicle </th>
+<th> Service Type  </th>
+<th>Service Date </th>
+<th> Cost  </th>
+<th>Vendor </th>
+<th>Driver</th>
+<th>Odometer Value</th>
+<th>Notes </th>
+</tr>
+</thead>
+
+<!-- Footer Table -->
+</table>
+
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab_2">
+  <div id="info"></div>
+<form role="form" id="form_services" name="form_services" th:object="${services}"  method="post">
+
+<div class="form-group" hidden>
+<label for="nama">id</label>
+<input type="text" class="form-control" name="id_services" id="id_services" readonly />
+</div>
+
+<div class="form-group" hidden>
+  <label for="nama">id_vehicles</label>
+  <input type="text" class="form-control" name="id_vehicles" id="id_vehicles" readonly />
+  </div>
+ <div class="form-group col-md-3">
+<label for="nama"> Description</label>
+<input type="text" required="true" class="form-control"  id="description" name="description" placeholder="Masukkan Nama"/>
+</div>
+<div class="form-group col-md-3">
+  <label for="nama">vehicle </label>
+<div class="input-group">
+  <div class="input-group-btn">
+    <button type="button" class="btn btn-warning dropdown-toggle" data-target="#modal_vehicle" data-toggle="modal" aria-expanded="false">Pilih
+      <span class="fa fa-caret-down"></span></button>
+    <ul class="dropdown-menu">
+      <div class="panel panel-default" style="background: white;">
+        <button class="btn btn-info btn-lg" type="submit" name="selected"  id="selected" ><b class="glyphicon glyphicon-floppy-disk"></b> Select</button>
+     
+        
+        </div>
+    </ul>
+  </div>
+  <!-- /btn-group -->
+  <input  id="vehicle" name="vehicle" type="text" class="form-control">
+</div>
+</div>
+
+ <div class="form-group col-md-3">
+<label for="nama">Service Type</label>
+<input type="text" class="form-control" required="true" id="service_type" name="service_type" placeholder=""/>
+</div>
+ <div class="form-group col-md-3">
+
+<label for="nama">Service Date </label>
+<input type="text" class="form-control" required="true" id="service_date" name="service_date" placeholder=""/>
+</div>
+<div class="form-group col-md-3">
+
+<label for="nama">Cost </label>
+<input type="text" class="form-control" required="true" id="cost" name="cost" placeholder=""/>
+</div>
+  <div class="form-group col-md-3">
+<label for="nama">Vendor </label>
+<input type="text" class="form-control" required="true"  id="vendor" name="vendor" placeholder=" "/>
+</div>
+
+<div class="form-group col-md-3">
+<label for="nama"> Driver </label>
+<input type="text" class="form-control" required="true"  id="driver" name="driver" placeholder=" " readonly />
+</div>
+ <div class="form-group col-md-3">
+<label for="nama">Odometer Value </label>
+<input type="text" class="form-control" required="true" id="odometer_value" name="odometer_value" placeholder="supetok"/>
+</div>
+<div class="form-group col-md-12">
+<label for="nama">Notes </label>
+<input type="text" class="form-control" required="true" id="notes" name="notes" placeholder=" "/>
+</div>
+
+
+<button class="btn btn-info btn-lg" type="submit" name="sr1"  id="sr1" ><b class="glyphicon glyphicon-floppy-disk"></b> Save</button>
+<button class="btn btn-danger btn-lg" type="submit" name="sr2"  id="sr2" ><b class="glyphicon glyphicon-floppy-disk"></b> Delete</button>
+</form>
+</div>
+<div class="tab-pane" id="tab_3">
+
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</body>
+<script>
+
+document.getElementById('tabx').addEventListener('click', function() {
+var formContainer = document.getElementById('form_vehicles');
+
+if (formContainer.style.display === 'block') {
+formContainer.style.right = '-300px'; // Slide keluar ke kanan
+formContainer.style.display = 'none';
+} else {
+formContainer.style.right = '0'; // Slide masuk ke kanan
+formContainer.style.display = 'block';
+}
+});
+
+</script>
+</html>

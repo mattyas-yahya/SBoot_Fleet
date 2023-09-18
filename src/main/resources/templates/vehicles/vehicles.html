@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8" />
+<title>Master Data Vehicles</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+<h2 style="color: white;">
+  <b class="glyphicon glyphicon-send"></b>
+vehicles
+</h2>
+
+</section>
+<div layout:fragment="content">
+<div class="col-md-12">
+<div class="box-body">
+
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li ><a href="#tab_2" data-toggle="tab">General</a></li>
+</ul>
+<div class="tab-content">
+
+<div class="tab-pane active" id="tab_1">
+<div  style="background: white;">
+<table id="table_vehicles" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id</th>
+<th>Model</th>
+<th>License Plat</th>
+<th> Driver  </th>
+<th>Assignment Date</th>
+<th> Category </th>
+<th>Order Date</th>
+<th>Chassis Number</th>
+<th>Fleet Manager</th>
+<th>Location</th>
+<th> First Contract Date</th>
+<th>Purchase Value </th>
+<th> Residual Value </th>
+
+</tr>
+</thead>
+
+<!-- Footer Table -->
+</table>
+
+</div>
+</div>
+<div class="tab-pane" id="tab_2">
+  <div id="info"></div>
+<form role="form" id="form_vehicles" name="form_vehicles" th:object="${vehicles}"  method="post">
+
+<div class="form-group" hidden>
+<label for="nama">id</label>
+<input type="text" class="form-control" name="id_vehicles" id="id_vehicles" readonly />
+</div>
+
+ <div class="form-group col-md-3">
+<label for="nama"> Model</label>
+<input type="text" required="true" class="form-control"  id="model" name="model" placeholder="Masukkan Nama"/>
+</div>
+ <div class="form-group col-md-3">
+<label class="text-red" for="nama">License Plat</label>
+<input type="text" class="form-control" required="true"  id="license_plat" name="license_plat" placeholder="L9093KK"/>
+</div>
+ <div class="form-group col-md-3">
+
+<label for="nama">Driver</label>
+<input type="text" class="form-control" required="true" id="driver" name="driver" placeholder="mutarno"/>
+</div>
+ <div class="form-group col-md-3">
+
+<label for="nama">Assignment Date</label>
+<input type="text" class="form-control" required="true" id="assignment_date" name="assignment_date" placeholder=""/>
+</div>
+<div class="form-group col-md-6">
+
+<label for="nama">Category </label>
+<input type="text" class="form-control" required="true" id="category" name="category" placeholder=""/>
+</div>
+  <div class="form-group col-md-6">
+<label for="nama">Order Date</label>
+<input type="text" class="form-control" required="true"  id="order_date" name="order_date" placeholder=" "/>
+</div>
+
+<div class="form-group col-md-3">
+<label for="nama"> Chassis Number</label>
+<input type="text" class="form-control" required="true"  id="chassis_number" name="chassis_number" placeholder=" 983189318222"/>
+</div>
+ <div class="form-group col-md-3">
+<label for="nama">Fleet Manager</label>
+<input type="text" class="form-control" required="true" id="fleet_manager" name="fleet_manager" placeholder="supetok"/>
+</div>
+<div class="form-group col-md-3">
+<label for="nama">Location</label>
+<input type="text" class="form-control" required="true" id="location" name="location" placeholder="Surabaya,JL.asem_rowo 30"/>
+</div>
+
+   <div class="form-group col-md-3">
+<label for="nama">First Contract Date</label>
+<input type="text" class="form-control" required="true" id="first_contract_date" name="first_contract_date" placeholder=""/>
+</div>
+<div class="form-group">
+<label for="nama">Purchase Value</label>
+<input type="text" required="true" class="form-control"  id="purchase_value"  name="purchase_value" />
+
+    <div class="form-group">
+<label for="nama">Residual Value</label>
+<input type="text" required="true" class="form-control"  id="residual_value"  name="residual_value" />
+</div>
+</div>
+
+<button class="btn btn-info btn-lg" type="submit" name="ve1"  id="ve1" ><b class="glyphicon glyphicon-floppy-disk"></b> Save</button>
+<button class="btn btn-danger btn-lg" type="submit" name="ve2"  id="ve2" ><b class="glyphicon glyphicon-floppy-disk"></b> Delete</button>
+</form>
+</div>
+<div class="tab-pane" id="tab_3">
+
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</body>
+<script>
+
+document.getElementById('tabx').addEventListener('click', function() {
+var formContainer = document.getElementById('form_vehicles');
+
+if (formContainer.style.display === 'block') {
+formContainer.style.right = '-300px'; // Slide keluar ke kanan
+formContainer.style.display = 'none';
+} else {
+formContainer.style.right = '0'; // Slide masuk ke kanan
+formContainer.style.display = 'block';
+}
+});
+
+</script>
+</html>
